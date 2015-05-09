@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="fr.esiag.isies.pds.model.Patient"
+		discriminator-value="null" table="tr_person_bi" dynamic-insert="true">
+		<id name="id" type="int">
+			<column name="idtr_person" precision="5" scale="0" />
+			<generator class="increment" />
+		</id>
+		<property name="firstName" type="string" column="tr_person_first_name"
+			length="45" not-null="false" />
+		<property name="lastName" type="string" column="tr_person_last_name"
+			length="45" not-null="false" />
+
+		<many-to-one name="organization"
+			class="fr.esiag.isies.pds.model.Organization"
+			lazy="false" cascade="all">
+			<column name="IDTR_ORGANIZATION" />
+		</many-to-one>
+		<!-- <one-to-one name="medicalRecord" class="fr.esiag.isies.pds.model.referential.medicalRecord.MedicalRecord" 
+			cascade="save-update" /> -->
+	</class>
+</hibernate-mapping>

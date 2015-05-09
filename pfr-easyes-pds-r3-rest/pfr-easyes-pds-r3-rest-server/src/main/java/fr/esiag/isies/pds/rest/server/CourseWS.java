@@ -52,6 +52,7 @@ public class CourseWS {
 	 * @param beginDate
 	 * @param endDate
 	 * @return all courses between begin and end date
+	 * @throws Exception 
 	 */
 	@Path("{beginDate}/{endDate}")
 	@GET
@@ -61,6 +62,7 @@ public class CourseWS {
 			@PathParam("endDate") String endDateTxt) {
 		DateFormat sdf = new SimpleDateFormat("ddMMyyyy", Locale.FRANCE);
 		try {
+			LOGGER.debug(beginDateTxt);
 			Date beginDate = sdf.parse(beginDateTxt);
 			Date endDate = sdf.parse(endDateTxt);
 			LOGGER.debug("PDS-R3-PFR : begin date : " + sdf.format(beginDate));

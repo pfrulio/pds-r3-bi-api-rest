@@ -21,7 +21,7 @@ import fr.esiag.isies.pds.rest.client.CourseClient;
  * @author Peter
  *
  */
-public class CoursesReader implements ItemReader<List<HealthPath>> {
+public class CoursesReader implements ItemReader<HealthPath> {
 
 	/**
 	 * Logger.
@@ -32,20 +32,30 @@ public class CoursesReader implements ItemReader<List<HealthPath>> {
 	private int counter;
 
 	private CourseClient courseClient;
+	
+	private List<HealthPath> courses;
 
+	/**
+	 * create course client and get all courses which are in the database
+	 */
 	public CoursesReader() {
 		courseClient = new CourseClient();
 		counter = 0;
+		courses = courseClient.getRequest("12122012", "13122012");
 	}
 
+	/**
+	 * read the courses list while exist another element to read
+	 */
 	@Override
-	public List<HealthPath> read() throws Exception, UnexpectedInputException,
+	public HealthPath read() throws Exception, UnexpectedInputException,
 			ParseException, NonTransientResourceException {
 		
-		if (counter == 0) {
+		if (counter < courses.size()) {
 			LOGGER.info("PDS-R3-PFR : Read list of Path");
+			HealthPath temp = courses.get(counter);
 			counter++;
-			return courseClient.getRequest("12122012", "13122012");
+			return temp;
 		} else {
 			return null;
 		}

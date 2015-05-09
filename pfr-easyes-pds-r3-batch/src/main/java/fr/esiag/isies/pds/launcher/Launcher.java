@@ -14,6 +14,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+/**
+ * Launcher of batch to get production data and write into staging database
+ * @author PFR
+ *
+ */
 public class Launcher {
 
 	/**
@@ -28,7 +33,7 @@ public class Launcher {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		LOGGER.info("Batch launched");
+		LOGGER.info("PDS-R3-PDS : Batch launched");
 		Launcher obj = new Launcher();
 		obj.run();
 	}

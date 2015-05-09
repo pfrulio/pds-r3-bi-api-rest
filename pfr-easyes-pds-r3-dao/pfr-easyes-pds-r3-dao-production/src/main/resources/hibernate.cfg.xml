@@ -28,13 +28,14 @@
 		<property name="show_sql">true</property>
 		
 		<!-- shared schema -->
-		<mapping resource="person.hbm.xml" />
-		<!-- <mapping resource="medical-record.hbm.xml" /> -->
+		<mapping resource="patient.hbm.xml" />
+		<mapping resource="medicalrecords.hbm.xml" />
+		<mapping resource="healthpath.hbm.xml" />
 
 
 		<!-- organization schema -->
-		<!-- <mapping resource="organization.hbm.xml" />
-		<mapping resource="type-organization.hbm.xml" /> -->
+		<mapping resource="organization.hbm.xml" />
+		<mapping resource="type-organization.hbm.xml" />
 
 		<!-- emergencyIncident schema -->
 		<!-- <mapping resource="caller.hbm.xml" />

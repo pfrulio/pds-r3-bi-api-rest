@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="fr.esiag.isies.pds.model.Organization"
+		table="tr_organization_bi" dynamic-insert="true">
+		<id name="id" type="int">
+			<column name="IDTR_ORGANIZATION" precision="5" scale="0" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="string">
+			<column name="TR_ORGA_COMPANY_NAME" length="45" not-null="false" />
+		</property>
+		<property name="latitude" type="float">
+			<column name="TR_ORGA_LATITUDE" not-null="false" />
+		</property>
+		<property name="longitude" type="float">
+			<column name="TR_ORGA_LONGITUDE" not-null="false" />
+		</property>
+		<property name="updateDate" type="date">
+			<column name="UPDATEDATE" length="45" not-null="false" />
+		</property>
+		<property name="createDate" type="date">
+			<column name="CREATEDATE" length="45" not-null="false" />
+		</property>
+		<property name="updateUser" type="string">
+			<column name="UPDATEUSER" length="45" not-null="false" />
+		</property>
+		<many-to-one name="organizationType"
+			class="fr.esiag.isies.pds.model.OrganizationType"
+			not-null="true" lazy="false">
+			<column name="IDTR_ORGANIZATION_TYPE"></column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

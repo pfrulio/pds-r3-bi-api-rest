@@ -14,7 +14,7 @@
 			<property name="hibernate.connection.username">easyesdb</property> <property 
 			name="hibernate.connection.password">pds,M2,77</property> -->
 
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/easyesdb</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/staging_easyesdb</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password"></property>
 

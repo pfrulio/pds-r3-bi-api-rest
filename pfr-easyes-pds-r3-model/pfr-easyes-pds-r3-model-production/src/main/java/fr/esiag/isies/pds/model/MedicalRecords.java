@@ -5,7 +5,7 @@ package fr.esiag.isies.pds.model;
  * @author PFR
  *
  */
-public class MedicalRecords {
+public class MedicalRecords extends AbstractModel {
 	
 	private Patient patient;
 	

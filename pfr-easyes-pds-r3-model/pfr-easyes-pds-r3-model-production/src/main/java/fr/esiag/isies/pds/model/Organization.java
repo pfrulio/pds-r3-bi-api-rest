@@ -5,7 +5,7 @@ package fr.esiag.isies.pds.model;
  * @author PFR
  *
  */
-public class Organization {
+public class Organization extends AbstractModel {
 
 	/**
 	 * Name of the orgnization
