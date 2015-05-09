@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>pfr.easyes.pds</groupId>
+		<artifactId>pfr-easyes-pds-r3</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	
+	<artifactId>pfr-easyes-pds-r3-rest</artifactId>
+	<packaging>pom</packaging>
+	<name>Model for Release 3 - PDS</name>
+
+	<modules>
+		<module>pfr-easyes-pds-r3-rest-server</module>
+		<module>pfr-easyes-pds-r3-rest-client</module>
+	</modules>
+
+	<properties>
+		<pfr.easyes.pds.r3.rest.version>1.0.0</pfr.easyes.pds.r3.rest.version>
+		<jersey.rest.version>1.19</jersey.rest.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-core</artifactId>
+			<version>${jersey.rest.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>${jersey.rest.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
+
