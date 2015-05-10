@@ -3,8 +3,8 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class
-		name="fr.esiag.isies.pds.model.MedicalRecords"
-		table="tr_medical_record_bi" dynamic-insert="true">
+		name="fr.esiag.isies.pds.model.production.course.MedicalRecords"
+		table="tr_medical_record" dynamic-insert="true">
 		<id name="id" type="int">
 			<!-- <column name="IDTR_MEDICAL_RECORD" precision="5" scale="0" /> 
 			<generator class="increment" /> -->
@@ -14,14 +14,14 @@
 			</generator>
 		</id>
 		<one-to-one name="patient"
-			class="fr.esiag.isies.pds.model.Patient"
+			class="fr.esiag.isies.pds.model.production.course.Patient"
 			cascade="save-update" />
 		<!-- <set name="healthPaths" table="tr_health_path" lazy="false"
 			inverse="false" fetch="select" cascade="all">
 			<key>
 				<column name="idtr_health_path" not-null="true" />
 			</key>
-			<one-to-many class="fr.esiag.isies.pds.model.healthPath.HealthPath" />
+			<one-to-many class="fr.esiag.isies.pds.model.production.course.healthPath.HealthPath" />
 		</set> -->
 	</class>
 </hibernate-mapping>

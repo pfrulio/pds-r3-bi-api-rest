@@ -13,6 +13,14 @@
     <packaging>jar</packaging>
     <name>Staging Dao Projet for Release 3 - PDS</name>
 	
+	<dependencies>
+		<dependency>
+			<groupId>pfr.easyes.pds</groupId>
+			<artifactId>pfr-easyes-pds-r3-model-staging</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+	</dependencies>
+	
 	<build>
         <pluginManagement>
             <plugins>

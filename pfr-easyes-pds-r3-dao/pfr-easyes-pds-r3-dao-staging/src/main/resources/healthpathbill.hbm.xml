@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="fr.esiag.isies.pds.model.staging.course.HealthPathBill"
+		table="tr_health_path_bill">
+		
+		<id name="id" type="int">
+			<column name="idtr_health_path_bill" precision="5" scale="0" />
+			<generator class="increment" />
+		</id>
+
+		<property name="createDate" type="date">
+			<column name="tr_health_path_bill_date" length="45" not-null="false" />
+		</property>
+
+		<property name="paid" type="boolean">
+			<column name="tr_health_path_bill_paid" length="45" not-null="false" />
+		</property>
+
+		<property name="amount" type="float">
+			<column name="tr_health_path_bill_amount" length="45"
+				not-null="false" />
+		</property>
+	</class>
+</hibernate-mapping>

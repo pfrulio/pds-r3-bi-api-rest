@@ -12,7 +12,7 @@ import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.json.JSONConfiguration;
 
-import fr.esiag.isies.pds.model.HealthPath;
+import fr.esiag.isies.pds.model.production.course.HealthPath;
 
 public class CourseClient {
 
@@ -36,10 +36,5 @@ public class CourseClient {
 
 		return lst;
 
-	}
-
-	public static void main(String[] args) {
-		CourseClient client = new CourseClient();
-		client.getRequest("12122012", "12122012");
 	}
 }

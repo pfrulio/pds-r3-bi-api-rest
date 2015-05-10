@@ -2,8 +2,8 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="fr.esiag.isies.pds.model.OrganizationType"
-		table="tr_organization_type_bi" dynamic-update="true">
+	<class name="fr.esiag.isies.pds.model.production.course.OrganizationType"
+		table="tr_organization_type" dynamic-update="true">
 		<id name="id" type="int">
 			<column name="IDTR_ORGANIZATION_TYPE" precision="5" scale="0" />
 			<generator class="increment" />

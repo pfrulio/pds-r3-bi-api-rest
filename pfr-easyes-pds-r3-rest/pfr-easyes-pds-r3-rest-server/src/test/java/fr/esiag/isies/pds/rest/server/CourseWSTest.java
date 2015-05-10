@@ -12,8 +12,8 @@ import mockit.NonStrictExpectations;
 import org.junit.Before;
 import org.junit.Test;
 
-import fr.esiag.isies.pds.dao.CourseDao;
-import fr.esiag.isies.pds.model.HealthPath;
+import fr.esiag.isies.pds.dao.production.CourseDao;
+import fr.esiag.isies.pds.model.production.course.HealthPath;
 
 /**
  * Unit Test for course WS

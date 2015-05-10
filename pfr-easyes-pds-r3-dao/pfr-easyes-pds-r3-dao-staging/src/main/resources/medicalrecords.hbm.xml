@@ -2,26 +2,16 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class
-		name="fr.esiag.isies.pds.model.MedicalRecords"
-		table="tr_medical_record_bi" dynamic-insert="true">
+	<class name="fr.esiag.isies.pds.model.staging.course.MedicalRecords"
+		table="tr_medical_record" dynamic-insert="true">
 		<id name="id" type="int">
-			<!-- <column name="IDTR_MEDICAL_RECORD" precision="5" scale="0" /> 
-			<generator class="increment" /> -->
-			<column name="idtr_person" />
-			<generator class="foreign">
-				<param name="property">patient</param>
-			</generator>
+			<column name="IDTR_MEDICAL_RECORD" precision="5" scale="0" />
+			<generator class="increment" />
 		</id>
-		<one-to-one name="patient"
-			class="fr.esiag.isies.pds.model.Patient"
-			cascade="save-update" />
-		<!-- <set name="healthPaths" table="tr_health_path" lazy="false"
-			inverse="false" fetch="select" cascade="all">
-			<key>
-				<column name="idtr_health_path" not-null="true" />
-			</key>
-			<one-to-many class="fr.esiag.isies.pds.model.healthPath.HealthPath" />
-		</set> -->
+		<many-to-one name="patient"
+			class="fr.esiag.isies.pds.model.staging.course.Patient" lazy="false"
+			cascade="all">
+			<column name="IDTR_Patient" />
+		</many-to-one>
 	</class>
 </hibernate-mapping>

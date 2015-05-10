@@ -31,6 +31,7 @@
 		<mapping resource="patient.hbm.xml" />
 		<mapping resource="medicalrecords.hbm.xml" />
 		<mapping resource="healthpath.hbm.xml" />
+		<mapping resource="healthpathbill.hbm.xml" />
 
 
 		<!-- organization schema -->

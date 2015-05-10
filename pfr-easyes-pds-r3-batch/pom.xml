@@ -19,7 +19,17 @@
 	<dependencies>
 		<dependency>
 			<groupId>pfr.easyes.pds</groupId>
+			<artifactId>pfr-easyes-pds-r3-utils</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>pfr.easyes.pds</groupId>
 			<artifactId>pfr-easyes-pds-r3-model-production</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>pfr.easyes.pds</groupId>
+			<artifactId>pfr-easyes-pds-r3-dao-staging</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 		<dependency>

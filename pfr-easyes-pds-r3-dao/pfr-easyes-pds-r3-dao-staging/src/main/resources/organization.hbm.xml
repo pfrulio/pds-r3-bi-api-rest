@@ -2,8 +2,8 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="fr.esiag.isies.pds.model.Organization"
-		table="tr_organization_bi" dynamic-insert="true">
+	<class name="fr.esiag.isies.pds.model.staging.course.Organization"
+		table="tr_organization" dynamic-insert="true">
 		<id name="id" type="int">
 			<column name="IDTR_ORGANIZATION" precision="5" scale="0" />
 			<generator class="increment" />
@@ -27,8 +27,8 @@
 			<column name="UPDATEUSER" length="45" not-null="false" />
 		</property>
 		<many-to-one name="organizationType"
-			class="fr.esiag.isies.pds.model.OrganizationType"
-			not-null="true" lazy="false">
+			class="fr.esiag.isies.pds.model.staging.course.OrganizationType"
+			not-null="true" lazy="false" cascade="all">
 			<column name="IDTR_ORGANIZATION_TYPE"></column>
 		</many-to-one>
 	</class>

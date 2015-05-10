@@ -2,9 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="fr.esiag.isies.pds.model.HealthPath"
-		table="tr_health_path_bi">
-		<!-- medicalAct currentState startDate endDate -->
+	<class name="fr.esiag.isies.pds.model.staging.course.HealthPath" table="tr_health_path">
 		<id name="id" type="int">
 			<column name="idtr_health_path" precision="5" scale="0" />
 			<generator class="increment" />
@@ -12,10 +10,16 @@
 		<property name="endDate" type="date">
 			<column name="tr_health_path_end_date" length="45" not-null="false" />
 		</property>
-
-		<many-to-one name="medicalRecords"
-			class="fr.esiag.isies.pds.model.MedicalRecords"
+		
+		<many-to-one name="healthPathBill"
+			class="fr.esiag.isies.pds.model.staging.course.HealthPathBill"
 			lazy="false" cascade="all">
+			<column name="IDTR_BILL" />
+		</many-to-one>
+		
+		
+		<many-to-one name="medicalRecords"
+			class="fr.esiag.isies.pds.model.staging.course.MedicalRecords" lazy="false" cascade="all">
 			<column name="IDTR_MEDICAL_RECORD" />
 		</many-to-one>
 	</class>

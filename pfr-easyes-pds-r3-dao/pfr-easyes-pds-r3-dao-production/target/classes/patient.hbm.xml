@@ -2,8 +2,8 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="fr.esiag.isies.pds.model.Patient"
-		discriminator-value="null" table="tr_person_bi" dynamic-insert="true">
+	<class name="fr.esiag.isies.pds.model.production.course.Patient"
+		discriminator-value="null" table="tr_person" dynamic-insert="true">
 		<id name="id" type="int">
 			<column name="idtr_person" precision="5" scale="0" />
 			<generator class="increment" />
@@ -14,11 +14,11 @@
 			length="45" not-null="false" />
 
 		<many-to-one name="organization"
-			class="fr.esiag.isies.pds.model.Organization"
+			class="fr.esiag.isies.pds.model.production.course.Organization"
 			lazy="false" cascade="all">
 			<column name="IDTR_ORGANIZATION" />
 		</many-to-one>
-		<!-- <one-to-one name="medicalRecord" class="fr.esiag.isies.pds.model.referential.medicalRecord.MedicalRecord" 
+		<!-- <one-to-one name="medicalRecord" class="fr.esiag.isies.pds.model.production.course.referential.medicalRecord.MedicalRecord" 
 			cascade="save-update" /> -->
 	</class>
 </hibernate-mapping>
