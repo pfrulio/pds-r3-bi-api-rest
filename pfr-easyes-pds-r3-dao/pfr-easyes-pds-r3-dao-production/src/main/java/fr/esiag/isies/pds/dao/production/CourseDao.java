@@ -21,26 +21,6 @@ public class CourseDao implements IDao<HealthPath> {
 		 .add(Restrictions.between("endDate", startDate, endDate)).list();
 		 session.close();
 		 return lst;
-//		OrganizationType organizationType = new OrganizationType();
-//		organizationType.setDescription("Hôpital Public");
-//		Organization organization = new Organization();
-//		organization.setOrganizationType(organizationType);
-//		organization.setLatitude(new Float(11.11));
-//		organization.setLongitude(new Float(11.11));
-//		organization.setName("Groupe Hospitalier Pitiée Salpétrière");
-//		Patient patient = new Patient();
-//		patient.setFirstname("Toto");
-//		patient.setLastname("titi");
-//		patient.setOrganization(organization);
-//		MedicalRecords mr = new MedicalRecords();
-//		mr.setPatient(patient);
-//		HealthPath hp = new HealthPath();
-//		hp.setMedicalRecords(mr);
-//
-//		List<HealthPath> hps = new ArrayList<HealthPath>();
-//		hps.add(hp);
-//		hps.add(hp);
-//		return hps;
 	}
 
 }

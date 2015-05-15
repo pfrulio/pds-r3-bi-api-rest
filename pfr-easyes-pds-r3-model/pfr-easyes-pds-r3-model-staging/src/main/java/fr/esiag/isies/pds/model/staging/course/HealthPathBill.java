@@ -2,12 +2,26 @@ package fr.esiag.isies.pds.model.staging.course;
 
 import fr.esiag.isies.pds.model.staging.AbstractModel;
 
+/**
+ * Bill of healthpath
+ * @author PFR
+ *
+ */
 public class HealthPathBill extends AbstractModel {
 
+	/**
+	 * true if paid, false otherwise
+	 */
 	private Boolean paid;
 
+	/**
+	 * amount of the bill
+	 */
 	private float amount;
 
+	/**
+	 * healthPath
+	 */
 	private HealthPath healthPath;
 
 	public float getAmount() {

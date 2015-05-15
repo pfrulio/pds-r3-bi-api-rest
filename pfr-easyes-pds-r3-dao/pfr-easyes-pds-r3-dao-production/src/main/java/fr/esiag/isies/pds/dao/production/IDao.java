@@ -19,7 +19,8 @@ public interface IDao<T> {
 	 * the start date
 	 * 
 	 * @param startDate
-	 * @return all object which is create or insert after the start date
+	 * @return all object which is create or insert after the start date and
+	 *         before the end date
 	 */
 	List<T> getAllByDate(Date startDate, Date endDate);
 

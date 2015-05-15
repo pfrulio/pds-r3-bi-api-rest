@@ -5,7 +5,6 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-
 /**
  * util class to use hibernate library
  * 
@@ -18,7 +17,7 @@ public class HibernateUtils {
 	 * SessionFactory
 	 */
 	private static SessionFactory sessionFactory = createSessionFactory();
-	
+
 	/**
 	 * ServiceRegistry
 	 */
@@ -26,6 +25,7 @@ public class HibernateUtils {
 
 	/**
 	 * Build Service Registry and configure Session Factory
+	 * 
 	 * @return SessionFactory
 	 */
 	public static SessionFactory createSessionFactory() {
@@ -33,8 +33,7 @@ public class HibernateUtils {
 		configuration.configure();
 		serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
 				configuration.getProperties()).build();
-		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-		return sessionFactory;
+		return configuration.buildSessionFactory(serviceRegistry);
 	}
 
 	/**

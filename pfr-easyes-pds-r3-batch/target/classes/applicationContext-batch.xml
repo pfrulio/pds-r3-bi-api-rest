@@ -21,6 +21,18 @@
 				<chunk reader="coursesReader" writer="courseItemWriter"
 					commit-interval="1" />
 			</tasklet>
+			<next on="COMPLETED" to="logCompleted" />
+			<next on="FAILED" to="logFailed" />
+		</step>
+
+		<step id="logCompleted">
+			<tasklet ref="courseUnpaidWriteFileLogCompleted" />
+			<end on="*" />
+		</step>
+		
+		<step id="logFailed">
+			<tasklet ref="courseUnpaidWriteFileLogFailed" />
+			<end on="*" />
 		</step>
 	</job>
 
@@ -30,6 +42,18 @@
 	<bean id="coursesReader" class="fr.esiag.isies.pds.reader.CoursesReader">
 	</bean>
 
+	<bean id="courseUnpaidWriteFileLogCompleted" class="fr.esiag.isies.pds.tasklet.WriteFileLogTasklet">
+		<property name="completed" value="true" />
+		<property name="directory" value="file:app-log/course-unpaid/" />
+		<property name="nameOfJob" value="COURSEUNPAID" />
+	</bean>
+	
+	<bean id="courseUnpaidWriteFileLogFailed" class="fr.esiag.isies.pds.tasklet.WriteFileLogTasklet">
+		<property name="completed" value="false" />
+		<property name="directory" value="file:app-log/course-unpaid/" />
+		<property name="nameOfJob" value="COURSEUNPAID" />
+	</bean>
+
 	<bean id="transactionManager"
 		class="org.springframework.batch.support.transaction.ResourcelessTransactionManager" />
 
@@ -37,7 +61,7 @@
 		class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
 		<property name="transactionManager" ref="transactionManager" />
 	</bean>
-	
+
 	<bean id="jobLauncher"
 		class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
 		<property name="jobRepository" ref="jobRepository" />

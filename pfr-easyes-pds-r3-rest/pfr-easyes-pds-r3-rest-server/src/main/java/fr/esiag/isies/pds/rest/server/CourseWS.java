@@ -51,8 +51,10 @@ public class CourseWS {
 	 * 
 	 * @param beginDate
 	 * @param endDate
-	 * @return all courses between begin and end date
-	 * @throws Exception 
+	 * @return response which contains all courses between begin and end date
+	 *         and status 200 if everything is ok if it's not ok this method
+	 *         return http code 400 (bad request)
+	 * @throws Exception
 	 */
 	@Path("{beginDate}/{endDate}")
 	@GET
@@ -80,16 +82,5 @@ public class CourseWS {
 			LOGGER.info("PDS-R3-PFR : date format error... (ddmmYYYY)");
 			return Response.status(400).build();
 		}
-	}
-
-	public static void main(String[] args) {
-		DateFormat sdf = new SimpleDateFormat("ddMMyyyy");
-		try {
-			System.out.println(sdf.format(sdf.parse("22011991")));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 	}
 }

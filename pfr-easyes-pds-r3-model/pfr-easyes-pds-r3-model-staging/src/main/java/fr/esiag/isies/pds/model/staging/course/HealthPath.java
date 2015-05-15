@@ -13,12 +13,18 @@ import fr.esiag.isies.pds.model.staging.AbstractModel;
 public class HealthPath extends AbstractModel {
 
 	/**
-	 * 
+	 * medicalRecords
 	 */
 	private MedicalRecords medicalRecords;
 
+	/**
+	 * endDate
+	 */
 	private Date endDate;
 
+	/**
+	 * healthPathBill
+	 */
 	private HealthPathBill healthPathBill;
 
 	public Date getEndDate() {
