@@ -8,5 +8,24 @@ import fr.esiag.isies.pds.model.production.AbstractModel;
  *
  */
 public class Intervention extends AbstractModel {
+	private IncidentTicket incidentTicket;
+
+	private Vehicle vehicle;
+
+	public IncidentTicket getIncidentTicket() {
+		return incidentTicket;
+	}
+
+	public void setIncidentTicket(IncidentTicket incidentTicket) {
+		this.incidentTicket = incidentTicket;
+	}
+
+	public Vehicle getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
+	}
 
 }

@@ -14,50 +14,50 @@ import org.springframework.batch.item.NonTransientResourceException;
 import org.springframework.batch.item.ParseException;
 import org.springframework.batch.item.UnexpectedInputException;
 
-import fr.esiag.isies.pds.model.production.course.HealthPath;
-import fr.esiag.isies.pds.rest.client.CourseClient;
+import fr.esiag.isies.pds.model.production.intervention.Intervention;
+import fr.esiag.isies.pds.rest.client.InterventionClient;
 
 /**
- * Call CourseWS to read courses from production database
+ * Call InterventionWS to read courses from production database
  * 
  * @author PFR
  *
  */
-public class CoursesReader implements ItemReader<HealthPath> {
+public class InterventionReader implements ItemReader<Intervention> {
 
 	/**
 	 * Logger.
 	 */
 	protected static final Logger LOGGER = LoggerFactory
-			.getLogger(CoursesReader.class);
+			.getLogger(InterventionReader.class);
 
 	private int counter;
 
-	private CourseClient courseClient;
+	private InterventionClient interventionClient;
 
-	private List<HealthPath> courses;
+	private List<Intervention> interventions;
 
 	/**
-	 * create course client and get all courses which are in the database
+	 * create intervention client and get all courses which are in the database
 	 */
-	public CoursesReader() {
-		courseClient = new CourseClient();
+	public InterventionReader() {
+		interventionClient = new InterventionClient();
 		counter = 0;
 		Date today = new Date();
-		courses = courseClient.getRequest(getBeginDate(today),
+		interventions = interventionClient.getRequest(getBeginDate(today),
 				getEndDate(today));
 	}
 
 	/**
-	 * read the courses list while exist another element to read
+	 * read the interventions list while exist another element to read
 	 */
 	@Override
-	public HealthPath read() throws Exception, UnexpectedInputException,
+	public Intervention read() throws Exception, UnexpectedInputException,
 			ParseException, NonTransientResourceException {
-		LOGGER.info("Nb of HealthPath : " + courses.size());
-		if (counter < courses.size()) {
-			LOGGER.info("PDS-R3-PFR : Read list of Path");
-			HealthPath temp = courses.get(counter);
+		LOGGER.info("Nb of Interventions : " + interventions.size());
+		if (counter < interventions.size()) {
+			LOGGER.info("PDS-R3-PFR : Read list of intervention");
+			Intervention temp = interventions.get(counter);
 			counter++;
 			return temp;
 		} else {

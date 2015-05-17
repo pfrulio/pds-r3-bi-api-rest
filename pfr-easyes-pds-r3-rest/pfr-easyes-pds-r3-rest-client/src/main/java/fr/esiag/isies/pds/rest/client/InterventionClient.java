@@ -30,11 +30,11 @@ public class InterventionClient {
 	/**
 	 * path of Course WS
 	 */
-	private static final String COURSE_WS = "intervention-ws";
+	private static final String INTERVENTION_WS = "intervention-ws";
 
 	/**
-	 * Request Course WS to get lst of interventions which are closed between begin
-	 * date and end date
+	 * Request Course WS to get lst of interventions which are closed between
+	 * begin date and end date
 	 * 
 	 * @param beginDate
 	 * @param endDate
@@ -45,8 +45,8 @@ public class InterventionClient {
 		clientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING,
 				Boolean.TRUE);
 		Client client = Client.create(clientConfig);
-		WebResource webResource = client.resource(BASE_URI + COURSE_WS + "/"
-				+ beginDate + "/" + endDate);
+		WebResource webResource = client.resource(BASE_URI + INTERVENTION_WS
+				+ "/" + beginDate + "/" + endDate);
 		webResource.accept(MediaType.APPLICATION_JSON);
 
 		ClientResponse response = webResource.get(ClientResponse.class);

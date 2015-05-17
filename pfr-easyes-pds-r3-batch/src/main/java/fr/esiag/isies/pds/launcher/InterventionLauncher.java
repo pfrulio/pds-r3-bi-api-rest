@@ -15,17 +15,17 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Launcher of batch to get production data and write into staging database
+ * Launcher of batch to get production intervention data and write into staging database
  * @author PFR
  *
  */
-public class Launcher {
+public class InterventionLauncher {
 
 	/**
 	 * Logger.
 	 */
 	protected static final Logger LOGGER = LoggerFactory
-			.getLogger(Launcher.class);
+			.getLogger(InterventionLauncher.class);
 
 	/**
 	 * Main class to launch the bath
@@ -34,7 +34,7 @@ public class Launcher {
 	 */
 	public static void main(String[] args) {
 		LOGGER.info("PDS-R3-PDS : Batch launched");
-		Launcher obj = new Launcher();
+		InterventionLauncher obj = new InterventionLauncher();
 		obj.run();
 	}
 
@@ -48,7 +48,7 @@ public class Launcher {
 					springConfig);
 			JobLauncher jobLauncher = (JobLauncher) context
 					.getBean("jobLauncher");
-			Job job = (Job) context.getBean("CourseJob");
+			Job job = (Job) context.getBean("InterventionJob");
 			((ConfigurableApplicationContext) context).close();
 			JobParameters param = new JobParametersBuilder().toJobParameters();
 			jobLauncher.run(job, param);
