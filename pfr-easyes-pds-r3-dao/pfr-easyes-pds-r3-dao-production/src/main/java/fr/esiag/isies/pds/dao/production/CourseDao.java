@@ -9,6 +9,11 @@ import org.hibernate.criterion.Restrictions;
 import fr.esiag.isies.pds.dao.production.utils.HibernateUtils;
 import fr.esiag.isies.pds.model.production.course.HealthPath;
 
+/**
+ * 
+ * @author PFR
+ *
+ */
 public class CourseDao implements IDao<HealthPath> {
 
 	@Override
