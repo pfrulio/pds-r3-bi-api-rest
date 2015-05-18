@@ -12,25 +12,25 @@ import mockit.NonStrictExpectations;
 import org.junit.Before;
 import org.junit.Test;
 
-import fr.esiag.isies.pds.rest.client.CourseClient;
+import fr.esiag.isies.pds.rest.client.InterventionClient;
 
-public class CoursesReaderTest {
+public class InterventionReaderTest {
 
 	@Mocked
-	CourseClient courseClient;
+	InterventionClient interventionClient;
 
-	CoursesReader cr;
+	InterventionReader ir;
 
 	@Before
 	public void init() {
 		new NonStrictExpectations() {
 			{
-				courseClient.getRequest("", "");
+				interventionClient.getRequest("", "");
 				result = null;
 			}
 		};
 
-		cr = new CoursesReader();
+		ir = new InterventionReader();
 	}
 
 	@Test
@@ -38,11 +38,11 @@ public class CoursesReaderTest {
 
 		DateFormat df = new SimpleDateFormat("ddMMyyyy");
 
-		assertEquals("15121990", cr.getBeginDate(df.parse("22011991")));
+		assertEquals("15121990", ir.getBeginDate(df.parse("22011991")));
 
-		assertEquals("15011991", cr.getBeginDate(df.parse("22021991")));
+		assertEquals("15011991", ir.getBeginDate(df.parse("22021991")));
 
-		assertEquals("24021991", cr.getBeginDate(df.parse("31031991")));
+		assertEquals("24021991", ir.getBeginDate(df.parse("31031991")));
 
 	}
 
@@ -51,11 +51,11 @@ public class CoursesReaderTest {
 
 		DateFormat df = new SimpleDateFormat("ddMMyyyy");
 
-		assertEquals("22121990", cr.getEndDate(df.parse("22011991")));
+		assertEquals("22121990", ir.getEndDate(df.parse("22011991")));
 
-		assertEquals("22011991", cr.getEndDate(df.parse("22021991")));
+		assertEquals("22011991", ir.getEndDate(df.parse("22021991")));
 
-		assertEquals("03031991", cr.getEndDate(df.parse("31031991")));
+		assertEquals("03031991", ir.getEndDate(df.parse("31031991")));
 
 	}
 }

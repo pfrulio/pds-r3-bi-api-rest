@@ -65,6 +65,11 @@ public class CoursesReader implements ItemReader<HealthPath> {
 		}
 	}
 
+	/**
+	 * get one month + one week before today date
+	 * @param date
+	 * @return
+	 */
 	public String getBeginDate(Date date) {
 		DateFormat sdf = new SimpleDateFormat("ddMMyyyy");
 		Calendar cal = new GregorianCalendar();
@@ -74,6 +79,11 @@ public class CoursesReader implements ItemReader<HealthPath> {
 		return sdf.format(cal.getTime());
 	}
 
+	/**
+	 * get one month before today date
+	 * @param date
+	 * @return
+	 */
 	public String getEndDate(Date date) {
 		DateFormat sdf = new SimpleDateFormat("ddMMyyyy");
 		Calendar cal = new GregorianCalendar();
